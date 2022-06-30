@@ -9,7 +9,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputLayout"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/search_wiki"
         android:paddingTop="@dimen/padding_wiki_top"
@@ -32,6 +32,36 @@
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/padding_top_chips"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputLayout"
+        app:singleSelection="true">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/yesterday"
+            style="@style/MyChipStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/yesterday"
+            android:textColor="@color/color_chips_text"
+            app:chipBackgroundColor="@color/chip_color" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/today"
+            app:chipIconSize="200dp"
+            style="@style/MyChipStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/today"
+            android:textColor="@color/color_chips_text"
+            app:chipBackgroundColor="@color/chip_color" />
+    </com.google.android.material.chip.ChipGroup>
 
     <com.example.pictureofthedaymy.utils.MyImageView
         android:id="@+id/imageView"

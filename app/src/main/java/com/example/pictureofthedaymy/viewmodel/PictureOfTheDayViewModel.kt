@@ -9,17 +9,34 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class PictureOfTheDayViewModel(private val liveData: MutableLiveData<AppState> = MutableLiveData() , private val repositoryImpl: RepositoryImpl = RepositoryImpl()) :
+class PictureOfTheDayViewModel(
+    private val liveData: MutableLiveData<PictureOfTheDayAppState> = MutableLiveData(),
+    private val repositoryImpl: RepositoryImpl = RepositoryImpl()
+) :
     ViewModel() {
 
-    fun getLiveData(): MutableLiveData<AppState>{
+    fun getLiveData(): MutableLiveData<PictureOfTheDayAppState> {
         return liveData
     }
 
-    fun sendRequest() {
-       liveData.postValue(AppState.Loading)
-        repositoryImpl.getPictureOfTheDayApi().getPictureOfTheDay(BuildConfig.NASA_API_KEY)
-            .enqueue(callback)
+    fun sendServerRequest() {
+        liveData.value = PictureOfTheDayAppState.Loading(0)
+        val apiKey: String = BuildConfig.NASA_API_KEY
+        if (apiKey.isBlank()) {
+            liveData.value = PictureOfTheDayAppState.Error(Throwable("wrong key"))
+        } else {
+            repositoryImpl.getPictureOfTheDayApi().getPictureOfTheDay(apiKey, date= String()).enqueue(callback)
+        }
+    }
+
+    fun sendServerRequest(date: String) {
+        liveData.value = PictureOfTheDayAppState.Loading(0)
+        val apiKey: String = BuildConfig.NASA_API_KEY
+        if (apiKey.isBlank()) {
+            liveData.value = PictureOfTheDayAppState.Error(Throwable("wrong key"))
+        } else {
+            repositoryImpl.getPictureOfTheDayApi().getPictureOfTheDay(apiKey, date).enqueue(callback)
+        }
     }
 
     private val callback = object : Callback<PictureOfTheDayResponseData> {
@@ -27,16 +44,15 @@ class PictureOfTheDayViewModel(private val liveData: MutableLiveData<AppState> =
             call: Call<PictureOfTheDayResponseData>,
             response: Response<PictureOfTheDayResponseData>
         ) {
-            if(response.isSuccessful){
-                liveData.postValue(AppState.Success(response.body()!!))
-            }else{
-                liveData.postValue(AppState.Error(throw IllegalStateException("Проблема")))
+            if (response.isSuccessful) {
+                liveData.postValue(PictureOfTheDayAppState.Success(response.body()!!))
+            } else {
+                liveData.postValue(PictureOfTheDayAppState.Error(throw IllegalStateException("Проблема")))
             }
-
         }
 
         override fun onFailure(call: Call<PictureOfTheDayResponseData>, t: Throwable) {
-           // TODO HW
+            // TODO HW
         }
     }
 }

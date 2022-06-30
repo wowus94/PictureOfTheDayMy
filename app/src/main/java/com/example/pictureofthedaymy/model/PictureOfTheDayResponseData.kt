@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class PictureOfTheDayResponseData(
     val copyright: String,
-    val date: String,
+    @field:SerializedName("date") val date: String?,
     val explanation: String,
     val hdurl: String,
     @SerializedName("media_type")

@@ -3,9 +3,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="background_color">#3C808A</color>
-    <color name="status_bar_color">#1F4349</color>
+    <color name="chip_color">#65C4D1</color>
     <color name="color_box">#65C4D1</color>
     <color name="color_hint">#4D4C4C</color>
+    <color name="color_chips_text">#4D4C4C</color>
+
 
 
 </resources>
