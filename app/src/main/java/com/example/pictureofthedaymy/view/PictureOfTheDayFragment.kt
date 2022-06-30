@@ -3,12 +3,11 @@ package com.example.pictureofthedaymy.view
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import coil.load
+import com.example.pictureofthedaymy.MainActivity
 import com.example.pictureofthedaymy.R
 import com.example.pictureofthedaymy.databinding.FragmentPictureBinding
 import com.example.pictureofthedaymy.viewmodel.PictureOfTheDayAppState
@@ -31,6 +30,11 @@ class PictureOfTheDayFragment : Fragment() {
 
     private val viewModel: PictureOfTheDayViewModel by lazy {
         ViewModelProvider(this).get(PictureOfTheDayViewModel::class.java)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_bottom_bar, menu)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -59,6 +63,9 @@ class PictureOfTheDayFragment : Fragment() {
                 }
             }
         }
+
+        (requireActivity() as MainActivity).setSupportActionBar(binding.bottomAppBar)
+        setHasOptionsMenu(true)
     }
 
     private fun takeDate(count: Int): String {
