@@ -9,7 +9,7 @@
         <item name="navigationIcon">@style/MyChipStyle</item>
     </style>
 
-    <style name="MyChipStyle" parent="Widget.Material3.Chip.Suggestion">
+    <style name="MyChipStyle" parent="Widget.MaterialComponents.Chip.Filter">
         <item name="chipBackgroundColor">@color/white</item>
         <item name="rippleColor">#080009</item>
 
