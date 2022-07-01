@@ -4,6 +4,6 @@
 
     </style>
 
-    <style name="Theme.PictureOfTheDayMy" parent="Base.Theme.PictureOfTheDayMy" />
+    <style name="Theme.Default." parent="Base.Theme.PictureOfTheDayMy" />
 
 </resources>
