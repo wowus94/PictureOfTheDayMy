@@ -6,12 +6,25 @@
         <item name="colorOnPrimary">?secondColor</item>
         <item name="colorSecondary">?secondColor</item>
         <item name="colorSecondaryVariant">?secondColor</item>
-
         <item name="colorOnSecondary">@color/black</item>
         <item name="android:navigationBarColor">@color/black</item>
-        <item name="android:statusBarColor" tools:targetApi="l">?mainColor</item>        <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?mainColor</item>
+        <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
         <item name="chipStyle">@style/MyChipStyle</item>
+
         <item name="navigationIcon">@style/MyChipStyle</item>
+        <item name="textAppearanceBody2">@style/MyTextAppearance</item>
+
+
+    </style>
+
+    <style name="MyTextAppearance" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="fontFamily">@font/chelsea_market</item>
+        <item name="android:fontFamily">@font/chelsea_market</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:letterSpacing">0.1</item>
     </style>
 
     <style name="MyChipStyle" parent="Widget.MaterialComponents.Chip.Filter">
@@ -28,7 +41,7 @@
 
     <style name="Theme.Green" parent="Base.Theme.PictureOfTheDayMy">
         <item name="mainColor">@color/green</item>
-        <item name="secondColor">@color/gray</item>
+        <item name="secondColor">#B7B9B9</item>
         <item name="fonColor">@color/green_fon</item>
     </style>
 

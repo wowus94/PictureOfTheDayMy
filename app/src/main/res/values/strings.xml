@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">PictureOfTheDayMy</string>
     <string name="action_settings">Settings</string>
-    <string name="yesterday">Вчера</string>
-    <string name="today">Сегодня</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="today">Today</string>
     <string name="search_wiki">Найти в Википедии</string>
     <string name="wiki_helper_text">Поиск термина в Википедии</string>
     <string name="todo">TODO</string>
