@@ -9,7 +9,6 @@
         <item name="colorOnSecondary">@color/black</item>
         <item name="android:navigationBarColor">@color/black</item>
         <item name="android:statusBarColor" tools:targetApi="l">?mainColor</item>
-        <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
         <item name="chipStyle">@style/MyChipStyle</item>\
 
         <item name="navigationIcon">@style/MyChipStyle</item>

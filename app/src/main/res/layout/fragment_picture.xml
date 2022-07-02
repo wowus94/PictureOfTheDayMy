@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="?fonColor"
     android:layout_height="match_parent"
-    tools:context=".view.PictureOfTheDayFragment">
+    android:background="?fonColor"
+    tools:context=".view.picture.PictureOfTheDayFragment">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputLayout"
@@ -26,9 +26,9 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_edit_text"
-            android:textColor="?secondColor"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="?secondColor" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -49,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/yesterday"
-            android:textColor="@color/color_chips_text"/>
+            android:textColor="@color/color_chips_text" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/today"
@@ -57,7 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/today"
-            android:textColor="@color/color_chips_text"/>
+            android:textColor="@color/color_chips_text" />
     </com.google.android.material.chip.ChipGroup>
 
     <com.example.pictureofthedaymy.utils.MyImageView
@@ -86,6 +86,6 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
         app:layout_anchor="@id/bottom_app_bar"
-        app:srcCompat="@drawable/ic_plus_fab"/>
+        app:srcCompat="@drawable/ic_plus_fab" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
