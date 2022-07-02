@@ -16,8 +16,16 @@
         <item name="textAppearanceBody2">@style/MyTextAppearance</item>
 
         <item name="textInputStyle">@style/MyStyleTextInput</item>
+
+        <item name="tabStyle">@style/MyTabLayoutStyle</item>
+
     </style>
 
+    <style name="MyTabLayoutStyle" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorFullWidth">false</item>
+        <item name="tabIndicatorColor">?secondColor</item>
+        <item name="tabTextColor">?secondColor</item>
+    </style>
 
     <style name="MyStyleTextInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="boxStrokeColor">?secondColor</item>
