@@ -50,7 +50,7 @@
 
     </style>
 
-    <style name="ThemeDefault" parent="Base.Theme.PictureOfTheDayMy">
+    <style name="ThemeBlue" parent="Base.Theme.PictureOfTheDayMy">
         <item name="mainColor">@color/blue</item>
         <item name="secondColor">@color/white</item>
         <item name="fonColor">@color/blue_fon</item>

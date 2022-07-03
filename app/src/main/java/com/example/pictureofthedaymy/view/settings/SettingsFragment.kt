@@ -8,8 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.pictureofthedaymy.MainActivity
-import com.example.pictureofthedaymy.R
+import com.example.pictureofthedaymy.*
 import com.example.pictureofthedaymy.databinding.FragmentSettingsBinding
 import com.example.pictureofthedaymy.viewmodel.PictureOfTheDayViewModel
 import com.google.android.material.tabs.TabLayout
@@ -52,13 +51,13 @@ class SettingsFragment : Fragment() {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 when (tab?.position) {
                     0 -> {
-                        SharedPreferences.setCurrentTheme(requireContext(), R.style.ThemeDefault)
+                        parentActivity.setCurrentTheme(ThemeBlue)
                     }
                     1 -> {
-                        SharedPreferences.setCurrentTheme(requireContext(), R.style.ThemeGreen)
+                        parentActivity.setCurrentTheme(ThemeGreen)
                     }
                     2 -> {
-                        SharedPreferences.setCurrentTheme(requireContext(), R.style.ThemeRed)
+                        parentActivity.setCurrentTheme(ThemeRed)
                     }
                 }
                 requireActivity().recreate()

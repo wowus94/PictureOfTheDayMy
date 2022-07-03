@@ -6,7 +6,7 @@ import androidx.core.view.WindowCompat
 import com.example.pictureofthedaymy.databinding.ActivityMainBinding
 import com.example.pictureofthedaymy.view.picture.PictureOfTheDayFragment
 
-const val ThemeDefault = 1
+const val ThemeBlue = 1
 const val ThemeGreen = 2
 const val ThemeRed = 3
 
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun getRealStyle(currentTheme: Int): Int {
         return when (currentTheme) {
-            ThemeDefault -> R.style.ThemeDefault
+            ThemeBlue -> R.style.ThemeBlue
             ThemeGreen -> R.style.ThemeGreen
             ThemeRed -> R.style.ThemeRed
             else -> 0

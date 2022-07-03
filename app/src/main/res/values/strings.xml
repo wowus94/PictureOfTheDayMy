@@ -10,7 +10,7 @@
     <string name="settings">settings</string>
     <string name="archive_message">Архив сообщений</string>
     <string name="send">Отправить...</string>
-    <string name="default_theme">Default Theme</string>
+    <string name="blue_theme">Blue Theme</string>
     <string name="green_theme">Green Theme</string>
     <string name="red_theme">Red Theme</string>
 </resources>
