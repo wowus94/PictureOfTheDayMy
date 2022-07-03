@@ -5,33 +5,36 @@
     android:layout_height="match_parent"
     android:background="?fonColor">
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
-        android:layout_width="match_parent"
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tabDefaultTheme"
+        <RadioButton
+            android:id="@+id/btnDefaultTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/default_theme" />
+            android:text="@string/default_theme"
+            android:textColor="?colorSecondary" />
 
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tabGreenTheme"
+        <RadioButton
+            android:id="@+id/btnGreenTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/green_theme" />
+            android:text="@string/green_theme"
+            android:textColor="?colorSecondary" />
 
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tabRedTheme"
+        <RadioButton
+            android:id="@+id/btnRedTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/red_theme" />
-
-    </com.google.android.material.tabs.TabLayout>
+            android:text="@string/red_theme"
+            android:textColor="?colorSecondary" />
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
