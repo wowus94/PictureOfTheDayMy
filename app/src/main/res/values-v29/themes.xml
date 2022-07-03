@@ -50,19 +50,19 @@
 
     </style>
 
-    <style name="Theme.Default" parent="Base.Theme.PictureOfTheDayMy">
+    <style name="ThemeDefault" parent="Base.Theme.PictureOfTheDayMy">
         <item name="mainColor">@color/blue</item>
         <item name="secondColor">@color/white</item>
         <item name="fonColor">@color/blue_fon</item>
     </style>
 
-    <style name="Theme.Green" parent="Base.Theme.PictureOfTheDayMy">
+    <style name="ThemeGreen" parent="Base.Theme.PictureOfTheDayMy">
         <item name="mainColor">@color/green</item>
         <item name="secondColor">@color/orange</item>
         <item name="fonColor">@color/green_fon</item>
     </style>
 
-    <style name="Theme.Red" parent="Base.Theme.PictureOfTheDayMy">
+    <style name="ThemeRed" parent="Base.Theme.PictureOfTheDayMy">
         <item name="mainColor">@color/red</item>
         <item name="secondColor">@color/black</item>
         <item name="fonColor">@color/red_fon</item>
