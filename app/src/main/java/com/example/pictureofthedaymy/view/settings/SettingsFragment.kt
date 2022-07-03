@@ -1,18 +1,28 @@
 package com.example.pictureofthedaymy.view.settings
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.pictureofthedaymy.MainActivity
+import com.example.pictureofthedaymy.R
 import com.example.pictureofthedaymy.databinding.FragmentSettingsBinding
 import com.example.pictureofthedaymy.viewmodel.PictureOfTheDayViewModel
 import com.google.android.material.tabs.TabLayout
 
 
 class SettingsFragment : Fragment() {
+
+    private lateinit var parentActivity: MainActivity
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        parentActivity = (context as MainActivity)
+
+    }
 
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!
@@ -33,20 +43,36 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
+        setTabLayoutClicks()
+
+    }
+
+    private fun setTabLayoutClicks() = with(binding) {
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                
+                when (tab?.position) {
+                    0 -> {
+                        SharedPreferences.setCurrentTheme(requireContext(), R.style.ThemeDefault)
+                    }
+                    1 -> {
+                        SharedPreferences.setCurrentTheme(requireContext(), R.style.ThemeGreen)
+                    }
+                    2 -> {
+                        SharedPreferences.setCurrentTheme(requireContext(), R.style.ThemeRed)
+                    }
+                }
+                requireActivity().recreate()
             }
 
+
             override fun onTabUnselected(tab: TabLayout.Tab?) {
-                TODO("Not yet implemented")
             }
 
             override fun onTabReselected(tab: TabLayout.Tab?) {
-                TODO("Not yet implemented")
             }
         })
     }
+
 
     companion object {
         fun newInstance() = SettingsFragment()
