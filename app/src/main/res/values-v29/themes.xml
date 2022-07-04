@@ -54,18 +54,21 @@
         <item name="mainColor">@color/blue</item>
         <item name="secondColor">@color/white</item>
         <item name="fonColor">@color/blue_fon</item>
+        <item name="fontFamily">@font/allan</item>
     </style>
 
     <style name="ThemeGreen" parent="Base.Theme.PictureOfTheDayMy">
         <item name="mainColor">@color/green</item>
         <item name="secondColor">@color/orange</item>
         <item name="fonColor">@color/green_fon</item>
+        <item name="fontFamily">@font/asset</item>
     </style>
 
     <style name="ThemeRed" parent="Base.Theme.PictureOfTheDayMy">
         <item name="mainColor">@color/red</item>
         <item name="secondColor">@color/black</item>
         <item name="fonColor">@color/red_fon</item>
+        <item name="fontFamily">@font/sonsie_one</item>
     </style>
 
 
