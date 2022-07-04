@@ -20,7 +20,8 @@ class SettingsFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         parentActivity = (context as MainActivity)
-
+        parentActivity =
+            requireActivity() as MainActivity
     }
 
     private var _binding: FragmentSettingsBinding? = null
@@ -47,17 +48,32 @@ class SettingsFragment : Fragment() {
     }
 
     private fun setTabLayoutClicks() = with(binding) {
+        when ((parentActivity.getCurrentTheme())) {
+            ThemeBlue -> {
+                tabLayout.selectTab(binding.tabLayout.getTabAt(0))
+            }
+            ThemeGreen -> {
+                tabLayout.selectTab(binding.tabLayout.getTabAt(1))
+            }
+            ThemeRed -> {
+                tabLayout.selectTab(binding.tabLayout.getTabAt(2))
+            }
+        }
+
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 when (tab?.position) {
                     0 -> {
                         parentActivity.setCurrentTheme(ThemeBlue)
+                        parentActivity.recreate()
                     }
                     1 -> {
                         parentActivity.setCurrentTheme(ThemeGreen)
+                        parentActivity.recreate()
                     }
                     2 -> {
                         parentActivity.setCurrentTheme(ThemeRed)
+                        parentActivity.recreate()
                     }
                 }
                 requireActivity().recreate()
