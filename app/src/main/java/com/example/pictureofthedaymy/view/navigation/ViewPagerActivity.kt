@@ -2,6 +2,7 @@ package com.example.pictureofthedaymy.view.navigation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.pictureofthedaymy.R
 import com.example.pictureofthedaymy.databinding.ActivityViewPagerBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -27,15 +28,16 @@ class ViewPagerActivity : AppCompatActivity() {
                 override fun onConfigureTab(tab: TabLayout.Tab, position: Int) {
                     tab.text = when (position) {
                         0 -> {
-                            "Земля"
+                            getString(R.string.earth)
                         }
                         1 -> {
-                            "Марс"
+                            getString(R.string.mars)
                         }
                         2 -> {
-                            "Система"
+                            getString(R.string.system)
                         }
-                        else -> "Земля"
+                        else -> getString(R.string.earth)
+
                     }
                 }
             }).attach()

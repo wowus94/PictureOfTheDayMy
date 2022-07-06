@@ -7,7 +7,6 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import coil.load
-import com.example.pictureofthedaymy.MainActivity
 import com.example.pictureofthedaymy.R
 import com.example.pictureofthedaymy.databinding.FragmentPictureBinding
 import com.example.pictureofthedaymy.view.drawer.BottomNavigationDrawerFragment
@@ -74,6 +73,8 @@ class PictureOfTheDayFragment : Fragment() {
             })
         }
 
+
+
         binding.chipGroup.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
                 R.id.yesterday -> {
@@ -84,9 +85,6 @@ class PictureOfTheDayFragment : Fragment() {
                 }
             }
         }
-
-        (requireActivity() as MainActivity).setSupportActionBar(binding.bottomAppBar)
-        setHasOptionsMenu(true)
     }
 
 
