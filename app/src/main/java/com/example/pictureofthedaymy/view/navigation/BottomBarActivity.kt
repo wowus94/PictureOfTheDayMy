@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import com.example.pictureofthedaymy.R
 import com.example.pictureofthedaymy.databinding.ActivityBottomBarBinding
 import com.example.pictureofthedaymy.view.picture.PictureOfTheDayBaseFragment
+import com.example.pictureofthedaymy.view.settings.SettingsFragment
 
 class BottomBarActivity : AppCompatActivity() {
 
@@ -25,7 +26,7 @@ class BottomBarActivity : AppCompatActivity() {
                     navigateTo(MarsFragment());true
                 }
                 R.id.action_view_system -> {
-                    navigateTo(SystemFragment());true
+                    navigateTo(SettingsFragment.newInstance());true
                 }
                 else -> true
             }
