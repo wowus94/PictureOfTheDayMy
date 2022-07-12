@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.pictureofthedaymy.R
 import com.example.pictureofthedaymy.databinding.ActivityBottomBarBinding
+import com.example.pictureofthedaymy.view.picture.PictureOfTheDayBaseFragment
 
 class BottomBarActivity : AppCompatActivity() {
 
@@ -18,7 +19,7 @@ class BottomBarActivity : AppCompatActivity() {
         binding.bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.action_view_earth -> {
-                    navigateTo(EarthFragment());true
+                    navigateTo(PictureOfTheDayBaseFragment.newInstance());true
                 }
                 R.id.action_view_mars -> {
                     navigateTo(MarsFragment());true

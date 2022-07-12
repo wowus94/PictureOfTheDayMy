@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.example.pictureofthedaymy.BuildConfig
 import com.example.pictureofthedaymy.model.PictureOfTheDayResponseData
 import com.example.pictureofthedaymy.model.RepositoryImpl
+import com.example.pictureofthedaymy.viewmodel.PictureOfTheDayAppState.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,20 +21,20 @@ class PictureOfTheDayViewModel(
     }
 
     fun sendServerRequest() {
-        liveData.value = PictureOfTheDayAppState.Loading(0)
+        liveData.value = Loading(0)
         val apiKey: String = BuildConfig.NASA_API_KEY
         if (apiKey.isBlank()) {
-            liveData.value = PictureOfTheDayAppState.Error(Throwable("wrong key"))
+            liveData.value = Error(Throwable("wrong key"))
         } else {
-            repositoryImpl.getPictureOfTheDayApi().getPictureOfTheDay(apiKey, date= String()).enqueue(callback)
+            repositoryImpl.getPictureOfTheDayApi().getPictureOfTheDay(apiKey, date = String()).enqueue(callback)
         }
     }
 
     fun sendServerRequest(date: String) {
-        liveData.value = PictureOfTheDayAppState.Loading(0)
+        liveData.value = Loading(0)
         val apiKey: String = BuildConfig.NASA_API_KEY
         if (apiKey.isBlank()) {
-            liveData.value = PictureOfTheDayAppState.Error(Throwable("wrong key"))
+            liveData.value = Error(Throwable("wrong key"))
         } else {
             repositoryImpl.getPictureOfTheDayApi().getPictureOfTheDay(apiKey, date).enqueue(callback)
         }
@@ -45,9 +46,9 @@ class PictureOfTheDayViewModel(
             response: Response<PictureOfTheDayResponseData>
         ) {
             if (response.isSuccessful) {
-                liveData.postValue(PictureOfTheDayAppState.Success(response.body()!!))
+                liveData.postValue(Success(response.body()!!))
             } else {
-                liveData.postValue(PictureOfTheDayAppState.Error(throw IllegalStateException("Проблема")))
+                liveData.postValue(Error(throw IllegalStateException("Проблема")))
             }
         }
 

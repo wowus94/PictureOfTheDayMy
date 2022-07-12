@@ -32,7 +32,7 @@ class EarthFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.viewPager.adapter = ViewPager2AdapterForEarthFragment(this)
+        binding.viewPager.adapter = ViewPager2AdapterForPictureOfTheDayFragment(this)
         bindTabLayout()
     }
 

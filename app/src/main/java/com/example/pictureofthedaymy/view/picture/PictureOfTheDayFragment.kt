@@ -59,12 +59,7 @@ class PictureOfTheDayFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getLiveData().observe(
-            viewLifecycleOwner
-        ) { appState ->
-            renderData(appState)
-        }
-        viewModel.sendServerRequest()
+
 
         binding.inputLayout.setEndIconOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW).apply {
@@ -74,29 +69,17 @@ class PictureOfTheDayFragment : Fragment() {
         }
 
 
-
-        binding.chipGroup.setOnCheckedChangeListener { group, checkedId ->
-            when (checkedId) {
-                R.id.yesterday -> {
-                    viewModel.sendServerRequest(takeDate(-1))
-                }
-                R.id.today -> {
-                    viewModel.sendServerRequest()
-                }
+        arguments?.getInt(BUNDLE_PICTURE_OF_THE_DAY).let { date ->
+            viewModel.getLiveData().observe(viewLifecycleOwner) {
+                renderData(it, date)
             }
+            viewModel.sendServerRequest(currentDate.takeDate(date ?: 0))
         }
+
     }
 
 
-    private fun takeDate(count: Int): String {
-        val currentDate = Calendar.getInstance()
-        currentDate.add(Calendar.DAY_OF_MONTH, count)
-        val format1 = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-        format1.timeZone = TimeZone.getTimeZone("EST")
-        return format1.format(currentDate.time)
-    }
-
-    private fun renderData(pictureOfTheDayAppState: PictureOfTheDayAppState) {
+    private fun renderData(pictureOfTheDayAppState: PictureOfTheDayAppState, date: Int?) {
         when (pictureOfTheDayAppState) {
             is PictureOfTheDayAppState.Error -> {
                 binding.imageView.load(R.drawable.ic_load_error_vector) {
@@ -116,11 +99,26 @@ class PictureOfTheDayFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance() = PictureOfTheDayFragment()
+        fun newInstance(bundle: Bundle): PictureOfTheDayFragment {
+            val fragment = PictureOfTheDayFragment()
+            fragment.arguments = bundle
+            return fragment
+        }
+
+        const val BUNDLE_PICTURE_OF_THE_DAY = "BUNDLE_PICTURE_OF_THE_DAY"
+        private val currentDate = Date()
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+
+    private fun Date.takeDate(i: Int): String {
+        val date = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date()).split("-")
+        val day = date[2].toInt() - i
+        return "${date[0]}-${date[1]}-$day"
     }
 }

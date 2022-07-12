@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import com.example.pictureofthedaymy.databinding.ActivityMainBinding
+import com.example.pictureofthedaymy.view.picture.PictureOfTheDayBaseFragment
 import com.example.pictureofthedaymy.view.picture.PictureOfTheDayFragment
 
 const val ThemeBlue = 1
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, PictureOfTheDayFragment.newInstance()).commit()
+                .replace(R.id.container, PictureOfTheDayBaseFragment.newInstance()).commit()
         }
     }
 
