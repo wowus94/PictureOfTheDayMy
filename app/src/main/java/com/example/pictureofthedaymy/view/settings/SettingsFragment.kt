@@ -1,27 +1,29 @@
 package com.example.pictureofthedaymy.view.settings
 
 import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.pictureofthedaymy.*
 import com.example.pictureofthedaymy.databinding.FragmentSettingsBinding
+import com.example.pictureofthedaymy.view.navigation.BottomBarActivity
+import com.example.pictureofthedaymy.view.navigation.ThemeBlue
+import com.example.pictureofthedaymy.view.navigation.ThemeGreen
+import com.example.pictureofthedaymy.view.navigation.ThemeRed
 import com.example.pictureofthedaymy.viewmodel.PictureOfTheDayViewModel
 import com.google.android.material.tabs.TabLayout
 
 
 class SettingsFragment : Fragment() {
 
-    private lateinit var parentActivity: MainActivity
+    private lateinit var parentActivity: BottomBarActivity
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        parentActivity = (context as MainActivity)
+        parentActivity = (context as BottomBarActivity)
         parentActivity =
-            requireActivity() as MainActivity
+            requireActivity() as BottomBarActivity
     }
 
     private var _binding: FragmentSettingsBinding? = null

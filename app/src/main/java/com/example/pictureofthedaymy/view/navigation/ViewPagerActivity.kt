@@ -34,7 +34,7 @@ class ViewPagerActivity : AppCompatActivity() {
                             getString(R.string.mars)
                         }
                         2 -> {
-                            getString(R.string.system)
+                            getString(R.string.settings)
                         }
                         else -> getString(R.string.earth)
 

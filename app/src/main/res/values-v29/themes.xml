@@ -23,8 +23,7 @@
 
     <style name="MyTabLayoutStyle" parent="Widget.Design.TabLayout">
         <item name="tabIndicatorFullWidth">false</item>
-        <item name="tabIndicatorColor">?mainColor</item>
-        <item name="tabTextColor">?mainColor</item>
+        <item name="tabIndicatorColor">@color/black</item>
     </style>
 
     <style name="MyStyleTextInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
