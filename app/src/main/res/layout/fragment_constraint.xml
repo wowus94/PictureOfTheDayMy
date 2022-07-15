@@ -12,20 +12,33 @@
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="btnOne,btnTwo" />
 
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrierOne"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineOne"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierDirection="right"
-        app:constraint_referenced_ids="btnOne" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
 
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrierTwo"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineTwo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierDirection="bottom"
-        app:constraint_referenced_ids="btnTwo" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineThree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineFour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.75" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnOne"
@@ -33,40 +46,39 @@
         android:layout_height="wrap_content"
         android:text="@string/one"
         android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/btnThree"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.244"
-        tools:layout_editor_absoluteX="112dp" />
+        app:layout_constraintBottom_toTopOf="@+id/guidelineOne"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineThree"
+        app:layout_constraintStart_toStartOf="@+id/guidelineThree"
+        app:layout_constraintTop_toTopOf="@+id/guidelineOne" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnTwo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/two"
-        tools:layout_editor_absoluteX="307dp"
-        tools:layout_editor_absoluteY="255dp" />
+        app:layout_constraintBottom_toTopOf="@+id/guidelineOne"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineFour"
+        app:layout_constraintStart_toStartOf="@+id/guidelineFour"
+        app:layout_constraintTop_toTopOf="@+id/guidelineOne" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnThree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="96dp"
         android:text="@string/three"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnFour"
-        app:layout_constraintHorizontal_bias="0.32"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/guidelineTwo"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineThree"
+        app:layout_constraintStart_toStartOf="@+id/guidelineThree"
+        app:layout_constraintTop_toTopOf="@+id/guidelineTwo" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnFour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/four"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.788"
-        app:layout_constraintStart_toEndOf="@+id/btnOne"
-        app:layout_constraintTop_toBottomOf="@+id/btnTwo"
-        app:layout_constraintVertical_bias="0.418" />
+        app:layout_constraintBottom_toTopOf="@+id/guidelineTwo"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineFour"
+        app:layout_constraintStart_toStartOf="@+id/guidelineFour"
+        app:layout_constraintTop_toTopOf="@+id/guidelineTwo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
