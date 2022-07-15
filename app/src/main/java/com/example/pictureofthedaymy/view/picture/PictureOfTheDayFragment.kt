@@ -3,14 +3,14 @@ package com.example.pictureofthedaymy.view.picture
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import coil.load
 import com.example.pictureofthedaymy.R
 import com.example.pictureofthedaymy.databinding.FragmentPictureBinding
-import com.example.pictureofthedaymy.view.drawer.BottomNavigationDrawerFragment
-import com.example.pictureofthedaymy.view.settings.SettingsFragment
 import com.example.pictureofthedaymy.viewmodel.PictureOfTheDayAppState
 import com.example.pictureofthedaymy.viewmodel.PictureOfTheDayViewModel
 import java.text.SimpleDateFormat
@@ -33,33 +33,9 @@ class PictureOfTheDayFragment : Fragment() {
         ViewModelProvider(this).get(PictureOfTheDayViewModel::class.java)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.menu_bottom_bar, menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.action_bar_favorite -> {
-
-            }
-            R.id.action_bar_settings -> {
-                requireActivity().supportFragmentManager.beginTransaction().hide(this)
-                    .add(R.id.container, SettingsFragment.newInstance()).addToBackStack("").commit()
-            }
-
-            android.R.id.home -> {
-                activity?.let {
-                    BottomNavigationDrawerFragment().show(it.supportFragmentManager, tag)
-                }
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
 
         binding.inputLayout.setEndIconOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW).apply {
@@ -75,6 +51,7 @@ class PictureOfTheDayFragment : Fragment() {
             }
             viewModel.sendServerRequest(currentDate.takeDate(date ?: 0))
         }
+
 
     }
 

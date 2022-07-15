@@ -7,6 +7,8 @@
     android:background="?fonColor"
     tools:context=".view.picture.PictureOfTheDayFragment">
 
+
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputLayout"
         android:layout_width="match_parent"
@@ -61,5 +63,6 @@
         android:visibility="gone"
         app:layout_anchor="@id/bottom_app_bar"
         app:srcCompat="@drawable/ic_plus_fab" />
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
