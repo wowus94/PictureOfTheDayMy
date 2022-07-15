@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.pictureofthedaymy.databinding.FragmentConstraintBinding
-import com.example.pictureofthedaymy.databinding.FragmentCoordinatorBinding
 
 class ConstraintFragment : Fragment() {
 
@@ -23,6 +22,18 @@ class ConstraintFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    var flag = true
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.btnThree.setOnClickListener {
+           flag = !flag
+            binding.group.visibility =
+                if (flag) View.VISIBLE else View.GONE
+        }
     }
 
     companion object {

@@ -6,30 +6,40 @@
     android:layout_height="match_parent"
     tools:context=".view.layouts.ConstraintFragment">
 
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="btnOne,btnTwo" />
+
+
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrierOne"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="right"
-        app:constraint_referenced_ids="one" />
+        app:constraint_referenced_ids="btnOne" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrierTwo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="two" />
+        app:constraint_referenced_ids="btnTwo" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/one"
+        android:id="@+id/btnOne"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/one"
-        tools:layout_editor_absoluteX="91dp"
-        tools:layout_editor_absoluteY="118dp" />
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/btnThree"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.244"
+        tools:layout_editor_absoluteX="112dp" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/two"
+        android:id="@+id/btnTwo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/two"
@@ -37,22 +47,26 @@
         tools:layout_editor_absoluteY="255dp" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/three"
+        android:id="@+id/btnThree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="96dp"
         android:text="@string/three"
-        app:layout_constraintEnd_toStartOf="@+id/four"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="489dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnFour"
+        app:layout_constraintHorizontal_bias="0.32"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/four"
+        android:id="@+id/btnFour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/four"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/one"
-        app:layout_constraintTop_toBottomOf="@+id/two" />
+        app:layout_constraintHorizontal_bias="0.788"
+        app:layout_constraintStart_toEndOf="@+id/btnOne"
+        app:layout_constraintTop_toBottomOf="@+id/btnTwo"
+        app:layout_constraintVertical_bias="0.418" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
