@@ -10,7 +10,8 @@ import com.example.pictureofthedaymy.databinding.FragmentCoordinatorBinding
 class CoordinatorFragment : Fragment() {
 
     private var _binding: FragmentCoordinatorBinding? = null
-    private val binding get() = _binding!!
+    private val binding: FragmentCoordinatorBinding
+        get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?

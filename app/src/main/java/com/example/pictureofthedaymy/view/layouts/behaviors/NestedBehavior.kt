@@ -4,17 +4,17 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.core.widget.NestedScrollView
+import com.example.pictureofthedaymy.R
 import com.google.android.material.appbar.AppBarLayout
-import kotlin.math.abs
 
-
-class MyBehaviorButtonOne(context: Context, attrs: AttributeSet? = null) :
-    CoordinatorLayout.Behavior<View>(context, attrs) {
+class NestedBehavior(context: Context, attrs: AttributeSet? = null) :
+    CoordinatorLayout.Behavior<NestedScrollView>(context,attrs) {
 
 
     override fun layoutDependsOn(
         parent: CoordinatorLayout,
-        child: View,
+        child: NestedScrollView,
         dependency: View
     ): Boolean {
         return dependency is AppBarLayout
@@ -22,14 +22,11 @@ class MyBehaviorButtonOne(context: Context, attrs: AttributeSet? = null) :
 
     override fun onDependentViewChanged(
         parent: CoordinatorLayout,
-        child: View,
+        child: NestedScrollView,
         dependency: View
     ): Boolean {
         if (dependency is AppBarLayout)
-            child.y = dependency.y + dependency.height - child.height / 2
-        child.x = (dependency.width - child.width).toFloat()
-
-        child.alpha = 1 - (abs(dependency.y) / (dependency.height / 2))
+            child.y = dependency.y + dependency.height
         return super.onDependentViewChanged(parent, child, dependency)
     }
 

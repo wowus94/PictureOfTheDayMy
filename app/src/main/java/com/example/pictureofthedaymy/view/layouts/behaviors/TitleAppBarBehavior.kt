@@ -3,18 +3,16 @@ package com.example.pictureofthedaymy.view.layouts.behaviors
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
+import android.widget.TextView
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.google.android.material.appbar.AppBarLayout
-import kotlin.math.abs
 
-
-class MyBehaviorButtonOne(context: Context, attrs: AttributeSet? = null) :
-    CoordinatorLayout.Behavior<View>(context, attrs) {
-
+class TitleAppBarBehavior(context: Context, attrs: AttributeSet? = null) :
+    CoordinatorLayout.Behavior<TextView>(context, attrs) {
 
     override fun layoutDependsOn(
         parent: CoordinatorLayout,
-        child: View,
+        child: TextView,
         dependency: View
     ): Boolean {
         return dependency is AppBarLayout
@@ -22,15 +20,13 @@ class MyBehaviorButtonOne(context: Context, attrs: AttributeSet? = null) :
 
     override fun onDependentViewChanged(
         parent: CoordinatorLayout,
-        child: View,
+        child: TextView,
         dependency: View
     ): Boolean {
-        if (dependency is AppBarLayout)
-            child.y = dependency.y + dependency.height - child.height / 2
-        child.x = (dependency.width - child.width).toFloat()
-
-        child.alpha = 1 - (abs(dependency.y) / (dependency.height / 2))
+        if (dependency is AppBarLayout) {
+            child.y = dependency.y + 400
+            child.x = dependency.y + child.width/2
+        }
         return super.onDependentViewChanged(parent, child, dependency)
     }
-
 }
