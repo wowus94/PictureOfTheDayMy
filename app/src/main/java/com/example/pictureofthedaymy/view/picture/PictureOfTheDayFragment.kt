@@ -6,9 +6,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.transition.ChangeBounds
+import androidx.transition.ChangeImageTransform
 import androidx.transition.TransitionManager
+import androidx.transition.TransitionSet
 import coil.load
 import com.example.pictureofthedaymy.R
 import com.example.pictureofthedaymy.databinding.FragmentPictureBinding
@@ -34,9 +39,11 @@ class PictureOfTheDayFragment : Fragment() {
         ViewModelProvider(this).get(PictureOfTheDayViewModel::class.java)
     }
 
-    var isFlag = false
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        helloBtn()
+        cropImg()
 
         binding.inputLayout.setEndIconOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW).apply {
@@ -52,14 +59,42 @@ class PictureOfTheDayFragment : Fragment() {
             }
             viewModel.sendServerRequest(currentDate.takeDate(date ?: 0))
         }
+    }
 
+    private fun cropImg() {
+        binding.imageView.setOnClickListener {
+            isFlag = !isFlag
+            val params = it.layoutParams as CoordinatorLayout.LayoutParams
 
+            val transitionSet = TransitionSet()
+            val changeBounds = ChangeBounds()
+            val changeImageTransform = ChangeImageTransform()
+
+            transitionSet.addTransition(changeImageTransform)
+            transitionSet.addTransition(changeBounds)
+            TransitionManager.beginDelayedTransition(binding.root, changeImageTransform)
+
+            if (isFlag) {
+                params.height = CoordinatorLayout.LayoutParams.MATCH_PARENT
+                binding.imageView.scaleType = ImageView.ScaleType.CENTER_CROP
+
+            } else {
+                params.height = CoordinatorLayout.LayoutParams.WRAP_CONTENT
+                binding.imageView.scaleType = ImageView.ScaleType.CENTER_INSIDE
+            }
+            binding.imageView.layoutParams = params
+        }
+    }
+
+    var isFlag = false
+    private fun helloBtn() {
         binding.btnHello.setOnClickListener {
             isFlag = !isFlag
             TransitionManager.beginDelayedTransition(binding.containerBtn)
-            binding.text.visibility = if(isFlag) View.VISIBLE else {View.GONE}
+            binding.text.visibility = if (isFlag) View.VISIBLE else {
+                View.GONE
+            }
         }
-
     }
 
 

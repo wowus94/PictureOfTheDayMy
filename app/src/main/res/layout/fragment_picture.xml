@@ -33,11 +33,12 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.example.pictureofthedaymy.utils.MyImageView
+    <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:scaleType="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,7 +76,8 @@
             android:id="@+id/btnHello"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/btn_hello" />
+            android:text="@string/btn_hello"
+            android:visibility="gone" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/text"
