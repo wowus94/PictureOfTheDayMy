@@ -116,5 +116,7 @@
     <string name="title_appbar">Title AppBar</string>
     <string name="btn_hello">Нажми меня!</string>
     <string name="text_btn_hello">Хорошего настроения!))</string>
+    <string name="text_option_1">Option 1</string>
+    <string name="text_option_2">Option 2</string>
 
 </resources>

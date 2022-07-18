@@ -4,4 +4,14 @@
     <dimen name="padding_top_chips">100dp</dimen>
     <dimen name="height_appBar">300dp</dimen>
     <dimen name="margin_btn_hello">50dp</dimen>
+    <dimen name="paddingEnd_optionContainer">32dp</dimen>
+    <dimen name="paddingBottom_optionContainer">32dp</dimen>
+    <dimen name="marginEnd_textView">5dp</dimen>
+    <dimen name="marginEnd_fab">26dp</dimen>
+    <dimen name="marginBottom_fab">36dp</dimen>
+    <dimen name="elevation_fab">5dp</dimen>
+    <dimen name="marginEnd_5dp">5dp</dimen>
+    <dimen name="marginEnd_imageView">42dp</dimen>
+    <dimen name="marginBottom_imageView">52dp</dimen>
+    <dimen name="elevation_imageView">10dp</dimen>
 </resources>
