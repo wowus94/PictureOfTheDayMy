@@ -114,5 +114,7 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="title_appbar">Title AppBar</string>
+    <string name="btn_hello">Нажми меня!</string>
+    <string name="text_btn_hello">Хорошего настроения!))</string>
 
 </resources>

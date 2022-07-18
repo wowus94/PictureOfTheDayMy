@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.transition.TransitionManager
 import coil.load
 import com.example.pictureofthedaymy.R
 import com.example.pictureofthedaymy.databinding.FragmentPictureBinding
@@ -33,7 +34,7 @@ class PictureOfTheDayFragment : Fragment() {
         ViewModelProvider(this).get(PictureOfTheDayViewModel::class.java)
     }
 
-
+    var isFlag = false
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -52,6 +53,12 @@ class PictureOfTheDayFragment : Fragment() {
             viewModel.sendServerRequest(currentDate.takeDate(date ?: 0))
         }
 
+
+        binding.btnHello.setOnClickListener {
+            isFlag = !isFlag
+            TransitionManager.beginDelayedTransition(binding.containerBtn)
+            binding.text.visibility = if(isFlag) View.VISIBLE else {View.GONE}
+        }
 
     }
 
