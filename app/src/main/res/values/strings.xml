@@ -18,7 +18,7 @@
     <string name="system">System</string>
     <string name="pic_of_the_day">Picture</string>
     <string name="coordinator">Coordinator</string>
-<!-- TODO: Remove or change this placeholder text -->
+    <string name="animation">Animation</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="one">One</string>
     <string name="two">Two</string>
@@ -118,5 +118,10 @@
     <string name="text_btn_hello">Хорошего настроения!))</string>
     <string name="text_option_1">Option 1</string>
     <string name="text_option_2">Option 2</string>
+    <string name="text_title_animationFragment">Кратер Даниэлсона</string>
+    <string name="text_animationFr">Показать описание</string>
+    <string name="text_description_animationFr">На фото видно камни и песок в кратере Даниэлсона (диаметр кратера около 67 км), расположенного на юго-востоке области Arabia Terra.</string>
+    <string name="text_data_animationFr">5 июня 2018 г.</string>
+    <string name="tap_for_info">Tap for info</string>
 
 </resources>

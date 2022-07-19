@@ -14,4 +14,7 @@
     <dimen name="marginEnd_imageView">42dp</dimen>
     <dimen name="marginBottom_imageView">52dp</dimen>
     <dimen name="elevation_imageView">10dp</dimen>
+    <dimen name="padding_start_end">16dp</dimen>
+    <dimen name="padding_top_bottom">3dp</dimen>
+    <dimen name="padding_8dp">8dp</dimen>
 </resources>

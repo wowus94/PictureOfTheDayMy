@@ -16,7 +16,7 @@
         android:title="@string/settings" />
     <item
         android:id="@+id/action_view_coordinator"
-        android:icon="@drawable/ic_coordinator"
-        android:title="@string/coordinator" />
+        android:icon="@drawable/ic_animation"
+        android:title="@string/animation" />
 
 </menu>

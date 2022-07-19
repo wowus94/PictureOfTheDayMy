@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.pictureofthedaymy.R
 import com.example.pictureofthedaymy.databinding.ActivityBottomBarBinding
-import com.example.pictureofthedaymy.view.layouts.CoordinatorFragment
+import com.example.pictureofthedaymy.view.layouts.AnimationFragment
 import com.example.pictureofthedaymy.view.picture.PictureOfTheDayBaseFragment
 import com.example.pictureofthedaymy.view.settings.SettingsFragment
 
@@ -39,7 +39,7 @@ class BottomBarActivity : AppCompatActivity() {
                     navigateTo(SettingsFragment.newInstance());true
                 }
                 R.id.action_view_coordinator -> {
-                    navigateTo(CoordinatorFragment.newInstance());true
+                    navigateTo(AnimationFragment.newInstance());true
                 }
                 else -> true
             }
