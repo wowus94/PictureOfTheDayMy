@@ -4,20 +4,24 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnticipateOvershootInterpolator
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.fragment.app.Fragment
-import com.example.pictureofthedaymy.databinding.FragmentAnimationBinding
+import androidx.transition.ChangeBounds
+import androidx.transition.TransitionManager
+import com.example.pictureofthedaymy.R
+import com.example.pictureofthedaymy.databinding.FragmentAnimationStartBinding
 
 class AnimationFragment : Fragment() {
 
-    private var _binding: FragmentAnimationBinding? = null
-    private val binding: FragmentAnimationBinding
+    private var _binding: FragmentAnimationStartBinding? = null
+    private val binding: FragmentAnimationStartBinding
         get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentAnimationBinding.inflate(inflater, container, false)
+        _binding = FragmentAnimationStartBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -26,17 +30,23 @@ class AnimationFragment : Fragment() {
         animationView()
     }
 
-    var isFlag = false
+    private var isFlag = false
 
     private fun animationView() {
 
         val constraintSetStart = ConstraintSet()
         val constraintSetEnd = ConstraintSet()
-        constraintSetStart.clone(binding.constraintContainer)
-        constraintSetEnd.clone(binding.constraintContainer)
+
+        constraintSetStart.clone(binding.root.context, R.layout.fragment_animation_start)
+        constraintSetEnd.clone(binding.root.context, R.layout.fragment_animation_end)
 
         binding.tap.setOnClickListener {
             isFlag = !isFlag
+
+            val changeBounds = ChangeBounds()
+            changeBounds.interpolator = AnticipateOvershootInterpolator(5.0f)
+
+            TransitionManager.beginDelayedTransition(binding.constraintContainer)
             if (isFlag) {
                 constraintSetEnd.applyTo(binding.constraintContainer)
             } else {
