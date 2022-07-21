@@ -7,6 +7,7 @@ import com.example.pictureofthedaymy.R
 import com.example.pictureofthedaymy.databinding.ActivityBottomBarBinding
 import com.example.pictureofthedaymy.view.layouts.AnimationFragment
 import com.example.pictureofthedaymy.view.picture.PictureOfTheDayBaseFragment
+import com.example.pictureofthedaymy.view.recycler.RecyclerFragment
 import com.example.pictureofthedaymy.view.settings.SettingsFragment
 
 const val ThemeBlue = 1
@@ -33,7 +34,7 @@ class BottomBarActivity : AppCompatActivity() {
                     navigateTo(PictureOfTheDayBaseFragment.newInstance());true
                 }
                 R.id.action_view_mars -> {
-                    navigateTo(MarsFragment());true
+                    navigateTo(RecyclerFragment());true
                 }
                 R.id.action_view_system -> {
                     navigateTo(SettingsFragment.newInstance());true
