@@ -9,18 +9,18 @@ import com.example.pictureofthedaymy.databinding.FragmentRecyclerItemHeaderBindi
 import com.example.pictureofthedaymy.databinding.FragmentRecyclerItemMarsBinding
 
 class RecyclerAdapter(
-    private var listData: List<Data>,
+    private var listData: MutableList<Data>,
     val callbackAddItem: AddItem,
     val callBackRemoveItem: RemoveItem
 ) :
     RecyclerView.Adapter<RecyclerAdapter.BaseViewHolder>() {
 
-    fun setListDataAdd(listDataNew: List<Data>, position: Int) {
+    fun setListDataAdd(listDataNew: MutableList<Data>, position: Int) {
         listData = listDataNew
         notifyItemInserted(position)
     }
 
-    fun setListDataRemove(listDataNew: List<Data>, position: Int) {
+    fun setListDataRemove(listDataNew: MutableList<Data>, position: Int) {
         listData = listDataNew
         notifyItemRemoved(position)
     }
@@ -83,6 +83,22 @@ class RecyclerAdapter(
             }
             binding.removeItemImageView.setOnClickListener {
                 callBackRemoveItem.remove(layoutPosition)
+            }
+
+            binding.moveItemUp.setOnClickListener {
+                //TODO HW  java.lang.IndexOutOfBoundsException: Index: -1, Size: 7
+                listData.removeAt(layoutPosition).apply {
+                    listData.add(layoutPosition - 1, this)
+                }
+                notifyItemMoved(layoutPosition, layoutPosition - 1)
+            }
+
+            binding.moveItemDown.setOnClickListener {
+                //TODO HW java.lang.IndexOutOfBoundsException: Index: -1, Size: 7
+                listData.removeAt(layoutPosition).apply {
+                    listData.add(layoutPosition + 1, this)
+                }
+                notifyItemMoved(layoutPosition, layoutPosition - 1)
             }
         }
     }
