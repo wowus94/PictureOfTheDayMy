@@ -21,17 +21,17 @@ class RecyclerFragment : Fragment() {
     }
 
     private val data = arrayListOf(
-        Data("Заголовок", type = TYPE_HEADER),
-        Data("Earth", type = TYPE_EARTH),
-        Data("Earth", type = TYPE_EARTH),
-        Data("Mars", type = TYPE_MARS),
-        Data("Earth", type = TYPE_EARTH),
-        Data("Earth", type = TYPE_EARTH),
-        Data("Earth", type = TYPE_EARTH),
-        Data("Mars", type = TYPE_MARS),
-        Data("Earth", type = TYPE_EARTH),
-        Data("Earth", type = TYPE_EARTH),
-        Data("Mars", type = TYPE_MARS)
+        Pair(Data("Заголовок", type = TYPE_HEADER), false),
+        Pair(Data("Earth", type = TYPE_EARTH), false),
+        Pair(Data("Earth", type = TYPE_EARTH), false),
+        Pair(Data("Mars", type = TYPE_MARS), false),
+        Pair(Data("Earth", type = TYPE_EARTH), false),
+        Pair(Data("Earth", type = TYPE_EARTH), false),
+        Pair(Data("Earth", type = TYPE_EARTH), false),
+        Pair(Data("Mars", type = TYPE_MARS), false),
+        Pair(Data("Earth", type = TYPE_EARTH), false),
+        Pair(Data("Earth", type = TYPE_EARTH), false),
+        Pair(Data("Mars", type = TYPE_MARS), false)
     )
 
     lateinit var adapter: RecyclerAdapter
@@ -41,10 +41,18 @@ class RecyclerFragment : Fragment() {
 
         adapter = RecyclerAdapter(data, callbackAddItem, callbackRemoveItem)
         binding.recyclerView.adapter = adapter
+
+        val lat = 10
+        val lon = 10
+        val location = lat to lon
+        location.first
+        location.second
+        val locationTwo = Pair(lat, lon)
+
     }
 
     private val callbackAddItem = AddItem {
-        data.add(it, Data("Mars *New*", type = TYPE_MARS))
+        data.add(it, Pair(Data("Mars(New)", type = TYPE_MARS),false))
         adapter.setListDataAdd(data, it)
     }
     private val callbackRemoveItem = RemoveItem {
