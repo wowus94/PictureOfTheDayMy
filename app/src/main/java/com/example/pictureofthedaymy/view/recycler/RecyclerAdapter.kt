@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.pictureofthedaymy.R
 import com.example.pictureofthedaymy.databinding.FragmentRecyclerItemEarthBinding
 import com.example.pictureofthedaymy.databinding.FragmentRecyclerItemHeaderBinding
 import com.example.pictureofthedaymy.databinding.FragmentRecyclerItemMarsBinding
@@ -13,7 +14,7 @@ class RecyclerAdapter(
     val callbackAddItem: AddItem,
     val callBackRemoveItem: RemoveItem
 ) :
-    RecyclerView.Adapter<RecyclerAdapter.BaseViewHolder>() {
+    RecyclerView.Adapter<RecyclerAdapter.BaseViewHolder>(), ItemTouchHelperAdapter {
 
     fun setListDataAdd(listDataNew: MutableList<Pair<Data, Boolean>>, position: Int) {
         listData = listDataNew
@@ -113,7 +114,25 @@ class RecyclerAdapter(
     }
 
     abstract class BaseViewHolder(view: View) :
-        RecyclerView.ViewHolder(view) {
+        RecyclerView.ViewHolder(view), ItemTouchHelperViewHolder {
         abstract fun bind(data: Pair<Data, Boolean>)
+        override fun onItemSelect() {
+            itemView.setBackgroundColor(R.color.background_color)
+        }
+
+        override fun onItemClear() {
+            itemView.setBackgroundColor(0)
+        }
+    }
+
+    override fun onItemMove(fromPosition: Int, toPosition: Int) {
+        listData.removeAt(fromPosition).apply {
+            listData.add(toPosition, this)
+        }
+        notifyItemMoved(fromPosition, toPosition)
+    }
+
+    override fun onItemDismiss(position: Int) {
+        callBackRemoveItem.remove(position)
     }
 }

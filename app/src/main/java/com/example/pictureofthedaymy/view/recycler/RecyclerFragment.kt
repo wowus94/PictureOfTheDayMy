@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.ItemTouchHelper
 import com.example.pictureofthedaymy.databinding.FragmentRecyclerBinding
 
 class RecyclerFragment : Fragment() {
@@ -42,17 +43,12 @@ class RecyclerFragment : Fragment() {
         adapter = RecyclerAdapter(data, callbackAddItem, callbackRemoveItem)
         binding.recyclerView.adapter = adapter
 
-        val lat = 10
-        val lon = 10
-        val location = lat to lon
-        location.first
-        location.second
-        val locationTwo = Pair(lat, lon)
+        ItemTouchHelper(ItemTouchHelperCallback(adapter)).attachToRecyclerView(binding.recyclerView)
 
     }
 
     private val callbackAddItem = AddItem {
-        data.add(it, Pair(Data("Mars(New)", type = TYPE_MARS),false))
+        data.add(it, Pair(Data("Mars(New)", type = TYPE_MARS), false))
         adapter.setListDataAdd(data, it)
     }
     private val callbackRemoveItem = RemoveItem {
