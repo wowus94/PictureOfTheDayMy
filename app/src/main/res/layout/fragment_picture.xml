@@ -73,19 +73,21 @@
         android:orientation="vertical">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnHello"
+            android:id="@+id/btnDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/btn_hello"
-            android:visibility="gone" />
+            android:text="@string/btnDescription"
+            android:visibility="visible" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/text"
+        <TextView
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_btn_hello"
+            android:layout_gravity="center|bottom"
+            android:background="@color/fon_textView"
+            android:padding="@dimen/padding_textView"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="@dimen/textSize_textView"
             android:visibility="gone" />
 
     </LinearLayout>

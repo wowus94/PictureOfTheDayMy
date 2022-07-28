@@ -20,4 +20,8 @@
     <color name="red_fon">#EA6D6D</color>
     <color name="black">#0C0C0C</color>
 
+    <color name="fon_textView">#BE0C0C0C</color>
+
+
+
 </resources>

@@ -17,4 +17,6 @@
     <dimen name="padding_start_end">16dp</dimen>
     <dimen name="padding_top_bottom">3dp</dimen>
     <dimen name="padding_8dp">8dp</dimen>
+    <dimen name="padding_textView">10dp</dimen>
+    <dimen name="textSize_textView">25sp</dimen>
 </resources>

@@ -3,11 +3,15 @@ package com.example.pictureofthedaymy.view.picture
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.BackgroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.transition.ChangeBounds
@@ -88,10 +92,10 @@ class PictureOfTheDayFragment : Fragment() {
 
     var isFlag = false
     private fun helloBtn() {
-        binding.btnHello.setOnClickListener {
+        binding.btnDescription.setOnClickListener {
             isFlag = !isFlag
             TransitionManager.beginDelayedTransition(binding.containerBtn)
-            binding.text.visibility = if (isFlag) View.VISIBLE else {
+            binding.textView.visibility = if (isFlag) View.VISIBLE else {
                 View.GONE
             }
         }
@@ -113,6 +117,21 @@ class PictureOfTheDayFragment : Fragment() {
             is PictureOfTheDayAppState.Success -> {
                 binding.imageView.load(pictureOfTheDayAppState.pictureOfTheDayResponseData.url) {
                 }
+
+                val spannableString: SpannableString
+                val text = pictureOfTheDayAppState.pictureOfTheDayResponseData.explanation
+
+                spannableString = SpannableString(text)
+                val backgroundColorSpan =
+                    BackgroundColorSpan(ContextCompat.getColor(requireContext(), R.color.red))
+                spannableString.setSpan(
+                    backgroundColorSpan,
+                    0,
+                    1,
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+                binding.textView.text = spannableString
+
             }
         }
     }
